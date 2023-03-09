@@ -88,7 +88,7 @@ TABLESPACE pg_default;
 --ALTER TABLE IF EXISTS public.usfs
 --    OWNER to postgres;
 
-COPY firestat -- table name
+COPY OccurencepointYearly -- table name
 FROM '/Users/lucaluna/460/FIRESTAT_Fire_Occurrence_-_Yearly_Update_(Feature_Layer).csv'
 DELIMITER ','
 CSV HEADER;
