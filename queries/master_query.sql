@@ -1,9 +1,11 @@
-DROP TABLE IF EXISTS public.fire_perimeter;
+-- Table: public.fire_perimeter
+
+-- DROP TABLE IF EXISTS public.fire_perimeter;
 
 CREATE TABLE IF NOT EXISTS public.fire_perimeter
 (
-    "OBJECTID" integer,
-    "GLOBALID" character varying COLLATE pg_catalog."default",
+    "OBJECTID" integer NOT NULL,
+    "GLOBALID" character varying COLLATE pg_catalog."default" DEFAULT 1,
     "FIREOCCURID" character varying COLLATE pg_catalog."default",
     "CN" character varying COLLATE pg_catalog."default",
     "REVDATE" time with time zone,
@@ -30,8 +32,9 @@ CREATE TABLE IF NOT EXISTS public.fire_perimeter
     "FIRESTATQC" character varying COLLATE pg_catalog."default",
     "SHAPEAREA" double precision,
     "SHAPELEN" double precision,
-    "DBSOURCEID" integer,
-    "DBSOURCEDATE" time with time zone
+    "DBSOURCEID" integer NOT NULL,
+    "DBSOURCEDATE" time with time zone NOT NULL,
+    CONSTRAINT fire_perimeter_pkey PRIMARY KEY ("OBJECTID")
 )
 
 TABLESPACE pg_default;
@@ -45,14 +48,15 @@ DELIMITER ','
 CSV HEADER;
 
 
-DROP TABLE IF EXISTS public.occurence_point;
-DROP TABLE IF EXISTS public.usfs;
+-- Table: public.occurence_point
+
+-- DROP TABLE IF EXISTS public.occurence_point;
 
 CREATE TABLE IF NOT EXISTS public.occurence_point
 (
     "X" double precision,
     "Y" double precision,
-    "OBJECTID" integer,
+    "OBJECTID" integer NOT NULL DEFAULT 1,
     "GLOBALID" character varying COLLATE pg_catalog."default",
     "FIREOCCURID" character varying COLLATE pg_catalog."default",
     "CN" character varying COLLATE pg_catalog."default",
@@ -81,8 +85,9 @@ CREATE TABLE IF NOT EXISTS public.occurence_point
     "POINTTYPE" character varying COLLATE pg_catalog."default",
     "PERIMEXISTS" character varying COLLATE pg_catalog."default",
     "FIRESTATQC" character varying COLLATE pg_catalog."default",
-    "DBSOURCEID" integer,
-    "DBSOURCEDATE" time with time zone
+    "DBSOURCEID" integer NOT NULL,
+    "DBSOURCEDATE" time with time zone NOT NULL,
+    CONSTRAINT occurence_point_pkey PRIMARY KEY ("OBJECTID")
 )
 
 TABLESPACE pg_default;
