@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 require('dotenv').config();
 
-router.get("/", function(req, res, next) {
+router.get("/", function(req, res) {
     const { Client } = require('pg');
 
     const client = new Client({
@@ -13,11 +13,15 @@ router.get("/", function(req, res, next) {
         database: process.env.DATABASE,
     });
 
-    client.connect().then(() => console.log('Connected successfully'));
-    const query = `SELECT * FROM "fire_perimeter" LIMIT 5`;
-    /* const query = ` SELECT "OBJECTID", "GLOBALID", "FIRENAME", "CN"
+    client.connect()
+    .then(() => console.log('Connected successfully'))
+    .then(() => console.log(req.query.name));
+    //const query = `SELECT * FROM "fire_perimeter" LIMIT 5`;
+    const query = ` SELECT "OBJECTID", "GLOBALID", "FIRENAME", "CN", "FIREYEAR", "STATCAUSE"
                     FROM fire_perimeter
-                    WHERE "OBJECTID" = 79871118` */
+                    WHERE "FIRENAME" = '${req.query.name}'
+                        AND "FIREYEAR" > ${req.query.start}
+                        AND "FIREYEAR" < ${req.query.end} `
     client.query(query, (err, result) => {
         if (err) {
             console.log(err.stack)

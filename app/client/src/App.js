@@ -2,17 +2,27 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import React, { useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
+import "react-datepicker/dist/react-datepicker.css";
 
 const App = () => {
   const [data, setData] = useState([]);
+  const [formData, setFormData] = useState({
+    name: "",
+    start: "",
+    end: ""
+  });
 
-  useEffect(() => {
-    fetch('http://localhost:9000/pgAPI')
-      .then(res => res.json())
-      .then(result => {
-        setData(result);
-      });
-  }, []);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const fetchData = async () => {
+      const result = await fetch(`http://localhost:9000/pgAPI?name=${formData.name}&start=${formData.start}&end=${formData.end}`);
+      const data = await result.json();
+      setData(data);
+    };
+    fetchData();
+  }
+
+  const [selectedDate, setSelectedDate] = useState(null);
 
 return (
     <div className="App">
@@ -23,9 +33,6 @@ return (
 							<div className='text-white'>
 							<h1 className='mb-3'>Fire Management Data Queries</h1>
 							<h4 className='mb-3'>This website is being built as an academic excercise</h4>
-							{/* <MDBBtn tag="a" outline size="lg">
-								Call to action
-							</MDBBtn> */}
 							</div>
 						</div>
 						</div>
@@ -33,24 +40,31 @@ return (
 					</header>
 					<div className="wrapper">
 					<h1>Report Options</h1>
-					<form>
+					<form onSubmit={handleSubmit}>
 					<fieldset>
-					<label>
-						<p>Fire Name</p>
-						<input type="text" name="fire-name" id="fire-name"/>
-					</label>
+						<div class="form-group row">
+							<label class="col-sm-1 col-form-label" for="fire-name">Fire Name</label>
+							<div class="col-sm-2">
+								<input type="text" name="fire-name" id="fire-name" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})}/>
+							</div>
+						</div>
+					</fieldset>
+					
+					<fieldset>
+						<div class="form-group row">
+							<label class="col-sm-1 col-form-label" for="date-start">Date Start</label>
+							<div class="col-sm-2">
+								<input type="int" name="date-start" pattern="[0-9]{4}" placeholder="YYYY" id="date-start" value={formData.start} onChange={(e) => setFormData({...formData, start: e.target.value})}/>		
+							</div>
+						</div>
 					</fieldset>
 					<fieldset>
-					<label>
-						<p>Date Start</p>
-						<input type="date" name="date-start" id="date-start"/>
-					</label>
-					</fieldset>
-					<fieldset>
-					<label>
-						<p>Date End</p>
-						<input type="date" name="date-end" id="date-end"/>
-					</label>
+						<div class="form-group row">
+							<label class="col-sm-1 col-form-label" for="date-end">Date End</label>
+							<div class="col-sm-2">
+								<input type="int" name="date-end" pattern="[0-9]{4}" placeholder="YYYY" id="date-end" value={formData.end} onChange={(e) => setFormData({...formData, end: e.target.value})}/>						
+							</div>
+						</div>
 					</fieldset>
 					<button type="submit">Generate</button>
 					</form>
@@ -63,6 +77,8 @@ return (
                         <th>GLOBALID</th>
                         <th>FIRENAME</th>
                         <th>CN</th>
+						<th>FIREYEAR</th>
+						<th>STATCAUSE</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,6 +88,8 @@ return (
                             <td>{item.GLOBALID}</td>
                             <td>{item.FIRENAME}</td>
                             <td>{item.CN}</td>
+							<td>{item.FIREYEAR}</td>
+							<td>{item.STATCAUSE}</td>
                             </tr>
                         ))}
                     </tbody>
