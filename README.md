@@ -28,6 +28,9 @@ To setup the database from the two data sets and normalize them into a usable da
 // loading csv datasets into tables
 master_query.sql
 
+// load datasets
+master_query.sql
+
 // remove malformed records - design decision to remove instead fo restore 
 clean_FIREOCCURID_duplicates.sql
 clean_OWNERAGENCY.sql
