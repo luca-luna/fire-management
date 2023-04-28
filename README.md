@@ -33,6 +33,8 @@ clean_FIREOCCURID_duplicates.sql
 clean_OWNERAGENCY.sql
 clean_PROTECTIONAGENCY.sql
 clean_SIZECLASS_and_TOTALACRES.sql
+clean_DISCOVERYDATE.sql
+clean_GLOBALID.sql
 
 
 // create new tables for normalization
@@ -40,11 +42,13 @@ create_owner_agency_table.sql
 create_protection_agency_table.sql
 create_year_table.sql
 create_class_table.sql
+create_occurrence_point_table.sql
 
 // populate those tables from the dataset
 create_class_table_from_op.sql
 create_fire_info_table_from_op.sql
 create_owner_agency_table_from_op.sql
 create_protection_agency_table_from_op.sql
+create_occurrence_point_table_from_occurence_point.sql
 
 
