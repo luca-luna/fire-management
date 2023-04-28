@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS public.fire_perimeter
     "SOFIRENUM" character varying COLLATE pg_catalog."default",
     "LOCALFIRENUM" character varying COLLATE pg_catalog."default",
     "REPORTINGUNIT" character varying COLLATE pg_catalog."default",
-    "DISCOVERYDATETIME" time with time zone,
+    "DISCOVERYDATETIME" timestamp with time zone,
     "TOTALACRES" double precision,
     "GISACRES" double precision,
     "SIZECLASS" character varying COLLATE pg_catalog."default",
