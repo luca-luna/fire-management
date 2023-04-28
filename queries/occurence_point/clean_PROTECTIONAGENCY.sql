@@ -5,6 +5,7 @@ delete from occurence_point as op
 where 
 (op."UNITDPROTECT" = 'NMN3S'
  or op."UNITDPROTECT" = 'NMN1S'
+ or op."UNITDPROTECT" = 'CASHU'
 and op."PROTECTIONAGENCY" != 'State')
 
 or
@@ -44,6 +45,11 @@ or
  or op."UNITDPROTECT" = 'CASRF'
  or op."UNITDPROTECT" = 'IDNCF'
  or op."UNITDPROTECT" = 'CATNF'
+ or op."UNITDPROTECT" = 'ORMAF'
+ or op."UNITDPROTECT" = 'UTUWF'
+ or op."UNITDPROTECT" = 'AZCNF'
+ or op."UNITDPROTECT" = 'NMFAD'
+ or op."UNITDPROTECT" = 'OROCF'
  and op."PROTECTIONAGENCY" != 'USFS')
  
 or
@@ -67,6 +73,8 @@ or
 
 (op."UNITDPROTECT" = 'COBLX'
  or op."UNITDPROTECT"= 'WYCMX'
+ or op."UNITDPROTECT" = 'CALAC'
+ or op."UNITDPROTECT" = 'MTLG01'
  and op."PROTECTIONAGENCY" != 'County')
 
 or
@@ -79,6 +87,9 @@ or
  or op."UNITDPROTECT" = 'CALMU'
  or op."UNITDPROTECT" = 'CARRU'
  or op."UNITDPROTECT" = 'CABDU'
+ or op."UNITDPROTECT" = 'OR950S'
+ or op."UNITDPROTECT" = 'CASKU'
+ or op."UNITDPROTECT" = 'NMN2S'
  and op."PROTECTIONAGENCY" != 'State')
  
 or
@@ -90,6 +101,12 @@ or
 
 (op."UNITDPROTECT" = 'MTLG25'
  and op."PROTECTIONAGENCY" != 'C&L')
+ 
+or
+
+(op."UNITDPROTECT" = 'MTCES'
+ and op."PROTECTIONAGENCY" != 'DNRC')
+
 
 
 

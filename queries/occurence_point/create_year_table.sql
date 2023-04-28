@@ -4,7 +4,7 @@
 
 CREATE TABLE IF NOT EXISTS public.year
 (
-	"DISCOVERYDATETIME" time with time zone,
+	"DISCOVERYDATETIME" timestamp with time zone,
 	"FIREYEAR" integer,
 
     CONSTRAINT year_pkey PRIMARY KEY ("DISCOVERYDATETIME")
