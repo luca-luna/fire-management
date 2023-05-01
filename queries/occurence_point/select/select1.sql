@@ -1,4 +1,4 @@
-select count(*)
+select count(*), sum(c."TOTALACRES") 
 from occurrence_point as op
 
 inner join class as c
