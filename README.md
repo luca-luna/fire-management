@@ -46,6 +46,7 @@ create_protection_agency_table.sql
 create_year_table.sql
 create_class_table.sql
 create_occurrence_point_table.sql
+create_fire_info_table.sql
 
 // populate those tables from the dataset
 create_class_table_from_op.sql
@@ -53,5 +54,6 @@ create_fire_info_table_from_op.sql
 create_owner_agency_table_from_op.sql
 create_protection_agency_table_from_op.sql
 create_occurrence_point_table_from_occurence_point.sql
+create_year_from_op.sql
 
 
