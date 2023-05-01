@@ -38,6 +38,7 @@ clean_PROTECTIONAGENCY.sql
 clean_SIZECLASS_and_TOTALACRES.sql
 clean_DISCOVERYDATE.sql
 clean_GLOBALID.sql
+clean_LOCALFIRENUM.sql
 
 
 // create new tables for normalization
