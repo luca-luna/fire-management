@@ -18,7 +18,7 @@ router.get("/", function(req, res) {
     .then(() => console.log(req.query.name));
     //const query = `SELECT * FROM "fire_perimeter" LIMIT 5`;
     const query = ` SELECT op."FIRENAME", op."CN", op."FIREYEAR", op."STATCAUSE", op."UNITDOWNER", op."TOTALACRES", c."SIZECLASS"
-                    FROM occurence_point as op
+                    FROM occurrence_point as op
                     JOIN class as c
                     on c."TOTALACRES" = op."TOTALACRES"
                     WHERE "FIRENAME" = '${req.query.name}'
