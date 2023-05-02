@@ -73,23 +73,23 @@ return (
                     <Table striped bordered hover variant="dark">
                     <thead>
                         <tr>
-                        <th>OBJECTID</th>
-                        <th>GLOBALID</th>
                         <th>FIRENAME</th>
                         <th>CN</th>
-						<th>FIREYEAR</th>
-						<th>STATCAUSE</th>
+                        <th>FIREYEAR</th>
+                        <th>STATCAUSE</th>
+						<th>TOTALACRES</th>
+						<th>SIZECLASS</th>
                         </tr>
                     </thead>
                     <tbody>
                         {data.map(item => (
-                            <tr key={item.OBJECTID}>
-                            <td>{item.OBJECTID}</td>
-                            <td>{item.GLOBALID}</td>
-                            <td>{item.FIRENAME}</td>
+                            <tr key={item.FIRENAME}>
                             <td>{item.CN}</td>
-							<td>{item.FIREYEAR}</td>
-							<td>{item.STATCAUSE}</td>
+                            <td>{item.FIREYEAR}</td>
+                            <td>{item.STATCAUSE}</td>
+                            <td>{item.UNITDOWNER}</td>
+							<td>{item.TOTALACRES}</td>
+							<td>{item.SIZECLASS}</td>
                             </tr>
                         ))}
                     </tbody>
