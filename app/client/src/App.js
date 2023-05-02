@@ -75,7 +75,7 @@ return (
                         <tr>
                         <th>FIRENAME</th>
                         <th>CN</th>
-                        <th>FIREYEAR</th>
+                        <th>DISCOVERYDATETIME</th>
                         <th>STATCAUSE</th>
 						<th>TOTALACRES</th>
 						<th>SIZECLASS</th>
@@ -84,10 +84,10 @@ return (
                     <tbody>
                         {data.map(item => (
                             <tr key={item.FIRENAME}>
+                            <td>{item.FIRENAME}</td>
                             <td>{item.CN}</td>
-                            <td>{item.FIREYEAR}</td>
+                            <td>{item.DISCOVERYDATETIME}</td>
                             <td>{item.STATCAUSE}</td>
-                            <td>{item.UNITDOWNER}</td>
 							<td>{item.TOTALACRES}</td>
 							<td>{item.SIZECLASS}</td>
                             </tr>
