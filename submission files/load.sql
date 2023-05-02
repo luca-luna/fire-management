@@ -254,4 +254,37 @@ and op."PROTECTIONAGENCY" is not null ;
 
 -- Drop the old columns
 alter table occurrence_point
-    drop column "X", "Y", "FIREYEAR", "UNITIDPROTECT", "LOCALFIRENUM", "TOTALACRES", "OWNERAGENCY", "PROTECTIONAGENCY";
+    drop column "X",
+    drop column "Y",
+    drop column "GLOBALID",
+    drop column "FIREYEAR",
+    drop column "UNITIDPROTECT",
+    drop column "LOCALFIRENUM",
+    drop column "TOTALACRES",
+    drop column "OWNERAGENCY",
+    drop column "PROTECTIONAGENCY";
+
+-- Drop old columns from fire_perimeter
+alter table fire_perimeter
+    drop column "CN",
+    drop column "FIRENAME",
+    drop column "COMPLEXNAME",
+    drop column "FIREYEAR",
+    drop column "UNIQFIREID",
+    drop column "SOFIRENUM",
+    drop column "LOCALFIRENUM",
+    drop column "REPORTINGUNIT",
+    drop column "DISCOVERYDATETIME",
+    drop column "SIZECLASS",
+    drop column "TOTALACRES",
+    drop column "STATCAUSE",
+    drop column "COMMENTS",
+    drop column "DATASOURCE",
+    drop column "OWNERAGENCY",
+    drop column "UNITIDOWNER",
+    drop column "PROTECTIONAGENCY",
+    drop column "UNITIDPROTECT",
+    drop column "FEATURECAT",
+    drop column "FIRESTATQC",
+    drop column "DBSOURCEID",
+    drop column "DBSOURCEDATE";
