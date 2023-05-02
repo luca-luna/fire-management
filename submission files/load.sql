@@ -260,7 +260,7 @@ alter table occurrence_point
     drop column "FIREYEAR",
     drop column "UNITIDPROTECT",
     drop column "LOCALFIRENUM",
-    drop column "TOTALACRES",
+    drop column "SIZECLASS",
     drop column "OWNERAGENCY",
     drop column "PROTECTIONAGENCY";
 
