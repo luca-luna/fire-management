@@ -17,11 +17,14 @@ router.get("/", function(req, res) {
     .then(() => console.log('Connected successfully'))
     .then(() => console.log(req.query.name));
     //const query = `SELECT * FROM "fire_perimeter" LIMIT 5`;
-    const query = ` SELECT "OBJECTID", "GLOBALID", "FIRENAME", "CN", "FIREYEAR", "STATCAUSE"
-                    FROM fire_perimeter
+    const query = ` SELECT op."FIRENAME", op."CN", op."FIREYEAR", op."STATCAUSE", op."UNITDOWNER", op."TOTALACRES", c."SIZECLASS"
+                    FROM occurence_point as op
+                    JOIN class as c
+                    on c."TOTALACRES" = op."TOTALACRES"
                     WHERE "FIRENAME" = '${req.query.name}'
-                        AND "FIREYEAR" > ${req.query.start}
-                        AND "FIREYEAR" < ${req.query.end} `
+                        AND "FIREYEAR" > ${req.query.start ?? 1900}
+                        AND "FIREYEAR" < ${req.query.end ?? 2023} `
+                
     client.query(query, (err, result) => {
         if (err) {
             console.log(err.stack)
