@@ -1,3 +1,3 @@
 delete from owner_agency
-where "UNITDOWNER" = 'bfd'
+where "UNITIDOWNER" = 'bfd'
     and "OWNERAGENCY" = 'buffalo fire department'

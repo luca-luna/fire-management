@@ -1,5 +1,5 @@
-select "UNQIDFIREID"
+select "UNIQFIREID"
 from fire_info as fi
-inner join owner_agency as oa
-on (oa."UNITDOWNER" = fi."UNITDOWNER"
-and oa."OWNERAGENCY" = 'Tribal' )
+inner join protection_agency as pa
+on (pa."UNITIDPROTECT" = fi."UNITIDPROTECT"
+and pa."PROTECTIONAGENCY" = 'USFS' )
